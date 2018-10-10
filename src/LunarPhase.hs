@@ -15,7 +15,7 @@ data Phase = New
 
 moonRevolution = 29.530588853
 
--- calcPhase :: Integer -> Int -> Int -> Phase
+calcPhase :: Integer -> Int -> Int -> Phase
 calcPhase y m d = phase . flip mod' moonRevolution . fromIntegral $
                   diffDays (fromJulian y m d) (fromJulian 2000 1 6) where
                   phase x | x < 1.84566  = New
