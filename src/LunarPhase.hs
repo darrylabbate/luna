@@ -1,6 +1,9 @@
+{-# LANGUAGE OverloadedStrings #-}
+
 module LunarPhase where
 
 import           Data.Fixed
+import           Data.Text
 import           Data.Time
 import           Data.Time.Calendar.Julian
 
@@ -28,7 +31,7 @@ calcPhase y m d = phase . flip mod' moonRevolution . fromIntegral $
                           | x < 27.68493 = WaningCrescent
                           | otherwise    = New
 
-phaseString :: Phase -> String
+phaseString :: Phase -> Text
 phaseString New            = "New 🌑"
 phaseString WaxingCrescent = "Waxing Crescent 🌒"
 phaseString FirstQuarter   = "First Quarter 🌓"

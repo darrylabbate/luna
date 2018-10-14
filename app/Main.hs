@@ -1,5 +1,6 @@
 module Main where
 
+import qualified Data.Text.IO       as T
 import           Data.Time.Calendar
 import           Data.Time.Clock
 import           LunarPhase
@@ -21,4 +22,4 @@ main = do
   year  <- currentYear
   month <- currentMonth
   day   <- currentDay
-  putStrLn $ phaseString $ calcPhase year month day
+  T.putStrLn $ phaseString $ calcPhase year month day
