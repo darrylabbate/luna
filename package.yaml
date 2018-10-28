@@ -1,5 +1,5 @@
 name:                luna
-version:             0.1.1.0
+version:             0.1.2.0
 github:              "rootbeersoup/luna"
 license:             BSD3
 author:              "Darryl Abbate"
@@ -9,13 +9,6 @@ copyright:           "2018 Darryl Abbate"
 extra-source-files:
 - README.md
 
-# Metadata used when publishing your package
-# synopsis:            Short description of your package
-# category:            Web
-
-# To avoid duplicated efforts in documentation and dealing with the
-# complications of embedding Haddock markup inside cabal files, it is
-# common to point users to the README.md file.
 description:         Please see the README on GitHub at <https://github.com/rootbeersoup/luna#readme>
 
 dependencies:
@@ -47,3 +40,4 @@ tests:
     - -with-rtsopts=-N
     dependencies:
     - luna
+    - hspec

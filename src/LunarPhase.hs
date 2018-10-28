@@ -15,20 +15,21 @@ data Phase = New
            | WaningGibbous
            | ThirdQuarter
            | WaningCrescent
+           deriving (Eq, Show)
 
 moonRevolution = 29.530588853
 
 calcPhase :: Integer -> Int -> Int -> Phase
 calcPhase y m d = phase . flip mod' moonRevolution . fromIntegral $
                   diffDays (fromJulian y m d) (fromJulian 2000 1 6) where
-                  phase x | x < 1.84566  = New
-                          | x < 5.53699  = WaxingCrescent
+                  phase x | x < 0.94566  = New
+                          | x < 7.53699  = WaxingCrescent
                           | x < 9.22831  = FirstQuarter
-                          | x < 12.91963 = WaxingGibbous
-                          | x < 16.61096 = Full
-                          | x < 20.30228 = WaningGibbous
-                          | x < 23.99361 = ThirdQuarter
-                          | x < 27.68493 = WaningCrescent
+                          | x < 13.91963 = WaxingGibbous
+                          | x < 15.61096 = Full
+                          | x < 22.30228 = WaningGibbous
+                          | x < 23.09361 = ThirdQuarter
+                          | x < 28.68493 = WaningCrescent
                           | otherwise    = New
 
 phaseString :: Phase -> Text
