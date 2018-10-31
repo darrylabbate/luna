@@ -27,8 +27,8 @@ calcPhase y m d = phase . flip mod' moonRevolution . fromIntegral $
                           | x < 9.22831  = FirstQuarter
                           | x < 13.91963 = WaxingGibbous
                           | x < 15.61096 = Full
-                          | x < 22.30228 = WaningGibbous
-                          | x < 23.09361 = ThirdQuarter
+                          | x < 21.80228 = WaningGibbous
+                          | x < 22.59361 = ThirdQuarter
                           | x < 28.68493 = WaningCrescent
                           | otherwise    = New
 

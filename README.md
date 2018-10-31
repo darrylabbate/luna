@@ -1,6 +1,6 @@
 # luna
 
-Current lunar phase - AKA my Astronomy prof's favorite iClicker question
+Current lunar phase - AKA my Astronomy prof's daily clicker question
 
 ## Installation
 
