@@ -8,7 +8,7 @@ import           Data.Time.Clock
 import           LunarPhase
 import           System.Environment
 
-version = "0.1.3"
+version = "0.1.4"
 
 main :: IO ()
 main = getArgs >>= parse
