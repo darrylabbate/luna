@@ -1,6 +1,7 @@
+{-# LANGUAGE OverloadedStrings #-}
+
 module Main where
 
-import           Data.Text
 import qualified Data.Text.IO       as T
 import           Data.Time.Calendar
 import           Data.Time.Clock
@@ -12,9 +13,9 @@ version = "0.1.3"
 main :: IO ()
 main = getArgs >>= parse
 
-parse ["-v"]        = T.putStrLn $ pack version
-parse ["--version"] = T.putStrLn $ pack version
-parse ["version"]   = T.putStrLn $ pack version
+parse ["-v"]        = T.putStrLn version
+parse ["--version"] = T.putStrLn version
+parse ["version"]   = T.putStrLn version
 parse []            = returnPhase
 
 returnPhase :: IO ()
