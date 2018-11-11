@@ -1,9 +1,28 @@
 module Main where
 
+import           Data.Text
 import qualified Data.Text.IO       as T
 import           Data.Time.Calendar
 import           Data.Time.Clock
 import           LunarPhase
+import           System.Environment
+
+version = "0.1.3"
+
+main :: IO ()
+main = getArgs >>= parse
+
+parse ["-v"]        = T.putStrLn $ pack version
+parse ["--version"] = T.putStrLn $ pack version
+parse ["version"]   = T.putStrLn $ pack version
+parse []            = returnPhase
+
+returnPhase :: IO ()
+returnPhase = do
+  year  <- currentYear
+  month <- currentMonth
+  day   <- currentDay
+  T.putStrLn $ phaseString $ calcPhase year month day
 
 date :: IO (Integer, Int, Int)
 date = getCurrentTime >>= return . toGregorian . utctDay
@@ -16,10 +35,3 @@ currentMonth = (\(_,m,_) -> m) <$> date
 
 currentDay :: IO Int
 currentDay = (\(_,_,d) -> d) <$> date
-
-main :: IO ()
-main = do
-  year  <- currentYear
-  month <- currentMonth
-  day   <- currentDay
-  T.putStrLn $ phaseString $ calcPhase year month day
