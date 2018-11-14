@@ -16,7 +16,7 @@ main = getArgs >>= parse
 parse ["-v"]        = T.putStrLn version
 parse ["--version"] = T.putStrLn version
 parse ["version"]   = T.putStrLn version
-parse []            = returnPhase
+parse _             = returnPhase
 
 returnPhase :: IO ()
 returnPhase = do
